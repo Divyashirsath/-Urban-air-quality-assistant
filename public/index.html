@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <meta name="description" content="Urban Air Quality Assistant — GenAI guidance for families navigating severe winter smog and urban air pollution." />
+    <title>Urban Air Quality Assistant · Family air safety</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div>
+            <div class="brand-name">AIR</div>
+            <div class="brand-caption">Air quality assistant</div>
+          </div>
+        </div>
+
+        <div class="workspace-pill">
+          <div class="workspace-avatar">A</div>
+          <div class="workspace-copy">
+            <strong>Urban family safety</strong>
+            <span>Winter smog desk</span>
+          </div>
+          <span class="chevron">⌄</span>
+        </div>
+
+        <div class="nav-section-label">Assistant</div>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <button class="nav-item active" data-route="plan">
+            <span class="nav-icon">⌂</span><span>Action plan</span><span class="nav-count" id="nav-plan-count">—</span>
+          </button>
+          <button class="nav-item" data-route="library">
+            <span class="nav-icon">▦</span><span>Routine library</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="system-status">
+            <span class="status-pulse"></span>
+            <div><strong>Assistant online</strong><span>Local demo adapter</span></div>
+          </div>
+          <button class="reset-button" data-action="reset-demo"><span>↻</span> Reset demo state</button>
+          <div class="version-label">UAQA v1.0 · local-mock</div>
+        </div>
+      </aside>
+
+      <div class="main-column">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+          <div class="topbar-context">
+            <span class="topbar-kicker">Urban air safety</span>
+            <span class="topbar-divider">/</span>
+            <span id="topbar-page">Action plan</span>
+          </div>
+          <div class="topbar-actions">
+            <div class="live-indicator"><span class="status-pulse"></span> Advisor online</div>
+            <div class="operator-avatar">AQ</div>
+            <div class="operator-copy"><strong>Family desk</strong><span>Community air health</span></div>
+          </div>
+        </header>
+
+        <main id="main-content" class="main-content" tabindex="-1">
+          <section class="view" id="view-plan" data-view="plan">
+            <div class="view-heading">
+              <div>
+                <div class="kicker">Challenge 6 · Urban Air Quality Assistant</div>
+                <h1>Clear the air, choose the low-emission life</h1>
+                <p class="lede">Severe winter smog needs a family-sized playbook: low-emission routines, indoor air hacks, and sustainable alternatives — with the impact of every choice shown.</p>
+              </div>
+              <div class="view-actions">
+                <button class="primary-button" id="generate-plan-button">Generate my action plan</button>
+              </div>
+            </div>
+            <div id="plan-state">
+              <div class="panel intro-panel">
+                <h2>Describe your household</h2>
+                <p class="muted">Tell the assistant where you are and how your household lives. It will tailor low-emission routines and indoor air hacks to your location and lifestyle.</p>
+                <form id="household-form">
+                  <div class="form-grid">
+                    <label class="field">
+                      <span>Location</span>
+                      <select id="location-select"></select>
+                    </label>
+                    <label class="field">
+                      <span>Household size</span>
+                      <input id="household-size" type="number" min="1" max="12" value="4" />
+                    </label>
+                  </div>
+                  <fieldset class="field-group">
+                    <legend>Health sensitivities</legend>
+                    <label class="check"><input type="checkbox" data-health="asthma" /> Asthma</label>
+                    <label class="check"><input type="checkbox" data-health="copd" /> COPD</label>
+                    <label class="check"><input type="checkbox" data-health="heartDisease" /> Heart disease</label>
+                    <label class="check"><input type="checkbox" data-health="pregnancy" /> Pregnancy</label>
+                    <label class="check"><input type="checkbox" data-health="children" /> Children</label>
+                  </fieldset>
+                  <fieldset class="field-group">
+                    <legend>Everyday activities</legend>
+                    <label class="check"><input type="checkbox" data-activity="schoolCommute" /> School commute</label>
+                    <label class="check"><input type="checkbox" data-activity="workCommute" /> Work commute</label>
+                    <label class="check"><input type="checkbox" data-activity="exercise" /> Exercise / sports</label>
+                    <label class="check"><input type="checkbox" data-activity="outdoorLeisure" /> Outdoor leisure</label>
+                    <label class="check"><input type="checkbox" data-activity="cooking" /> Cooking</label>
+                    <label class="check"><input type="checkbox" data-activity="woodBurning" /> Wood burning / fireplace</label>
+                    <label class="check"><input type="checkbox" data-activity="candlesIncense" /> Candles / incense</label>
+                    <label class="check"><input type="checkbox" data-activity="laundry" /> Laundry / dust</label>
+                  </fieldset>
+                  <div class="form-actions">
+                    <button type="button" class="primary-button" id="generate-plan-button">Generate my action plan</button>
+                    <button type="button" class="ghost-button" id="use-sample-button">Use sample household</button>
+                  </div>
+                </form>
+              </div>
+              <div id="plan-output"></div>
+            </div>
+
+            <div class="view" id="view-library" data-view="library" hidden>
+              <div class="view-heading">
+                <div>
+                  <div class="kicker">Routine library</div>
+                  <h1>Low-emission routines & indoor hacks</h1>
+                  <p class="lede">Reusable playbooks the assistant can tailor to any household.</p>
+                </div>
+              </div>
+              <div id="routine-grid" class="routine-grid"></div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+    <div id="modal-root"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

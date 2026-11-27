@@ -1,0 +1,16 @@
+{
+  "name": "urban-air-quality-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GenAI-powered assistant for families and communities navigating severe winter smog and urban air pollution.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test",
+    "reset": "node scripts/reset-demo.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
